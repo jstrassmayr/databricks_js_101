@@ -62,7 +62,7 @@ Hit CTRL+Enter to execute the command.
 
 
 To query the file use a SELECT statement.
-```
+```sql
 >> SELECT * FROM csv.`/Volumes/<<catalog>>/<<schema>>/<<volume>>/<<filename.csv>>`
 ```
 (!) Use Backticks (`) in this statement.
@@ -72,7 +72,7 @@ Do you notice anything about the column headers?
 ## Query data using 'read_files()'
 We can use the [read_files()](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/functions/read_files) function with parameters to read JSON, CSV, XML, TEXT, BINARYFILE, PARQUET, AVRO, and ORC files.
 
-```
+```sql
 SELECT * FROM read_files(
   '/Volumes/dbx_101_js/bronze/manual_uploads/baby-names.csv',
   format => 'csv',
