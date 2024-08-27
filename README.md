@@ -25,5 +25,12 @@ This repo contains code and docs for starting out with Databricks.
 ```
 >> LIST '/Volumes/<<catalog>>/<<schema>>/<<schema>>'
 ```
-
 (!) Achtung: Es müssen Single-Quotes (') verwendet werden.
+
+
+
+# Abfragen der hochgeladenen Bronze-Daten via SQL
+```
+>> select * from csv.`/Volumes/<<catalog>>/<<schema>>/<<schema>>/<<filename.csv>>`
+```
+(!) Achtung: Es müssen Backticks (`) verwendet werden und nicht Single-Quotes (').
