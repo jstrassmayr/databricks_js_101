@@ -92,5 +92,13 @@ Let's create a Python Notebook to read data from Bronze layer, modify it and wri
 ## Dataframes
 When using Python in data engineering, you might have come over the datatype "Dataframe". Dataframe variables/objects are very usefull to modify, filter, rename, aggregate... data. There are 2 types of dataframes on this planet: [Pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)- and [Spark-Dataframes](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.html). Spark DFs provide additional(!) functionality for reading/writing data from/to files and tables. You can convert back and forth but in Databricks we more often use Spark dataframes.
 
-
+Copy the following Python code and paste it into the first cell of the notebook.
+```
+babynames = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/Volumes/main/default/my-volume/babynames.csv")
+babynames.createOrReplaceTempView("babynames_table")
+years = spark.sql("select distinct(Year) from babynames_table").toPandas()['Year'].tolist()
+years.sort()
+dbutils.widgets.dropdown("year", "2014", [str(x) for x in years])
+display(babynames.filter(babynames.Year == dbutils.widgets.get("year")))
+```
 
