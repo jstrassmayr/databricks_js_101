@@ -24,33 +24,41 @@ Sidebar
 
 # File upload to managed Storage
 
-## 1: Upload and Ingest
--> Neu
+## 1: Upload and ingest to table
+-> New -> Data 
 - „Create or modify table“
-- Datei auswählen/hochladen
-- Neuen Catalog/Schema erstellen
-- Neue Tabelle erstellen
-- Advanced: Separator auswählen
+- Choose a file (e.g. [baby-names.csv](https://github.com/hadley/data-baby-names/blob/master/baby-names.csv))
+- Choose a Catalog (e.g. "dbx_101_js")
+- Choose a Schema (e.g. "bronze")
+- Choose a Table name (with custom suffix e.g. your initials)
+- -> Create table
 
-==> Die Datei wird eingelesen und steht als Tabelle zur Verfügung!
+The file will then be ingested and its data will be stored in a new table. The file and table are not linked.
+You can browse the new table in (your) Catalog.
+
+## 2: Upload and query file
+-> New -> Data
+- „Upload files to volume“
+- Expand a Catalog (e.g. "dbx_101_js")
+- Expand a Schema (e.g. "bronze")
+- Choose (or create) a Volume (e.g. "manual_uploads")
+- Choose a file (e.g. [baby-names.csv](https://github.com/hadley/data-baby-names/blob/master/baby-names.csv))
+- -> Upload
+
+The file will then be uploaded and can be viewed in (your) Catalog.
 
 
-## 2: Upload to volume
--> Neu
-- „Upload file to volume“
-- Choose (or create) a Volume
-- Datei auswählen/hochladen
-
-==> Die Datei wird nur hochgeladen und steht im Volume als Datei zur Verfügung!
+# Query uploaded data
+Open the "SQL Editor" and create a new query (using the + button). 
+Within the editor type "List '" and activate Autofill by hitting CTRL+Space. This should help you fill the command with that syntax.
 
 ```
 >> LIST '/Volumes/<<catalog>>/<<schema>>/<<volume>>'
 ```
-(!) Achtung: Es müssen Single-Quotes (') verwendet werden.
+(!) Use Single-Quotes (') in this statement.
 
 
 
-# Abfragen der hochgeladenen Bronze-Daten via SQL
 ```
 >> select * from csv.`/Volumes/<<catalog>>/<<schema>>/<<volume>>/<<filename.csv>>`
 ```
