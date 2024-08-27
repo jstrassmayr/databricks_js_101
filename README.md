@@ -50,16 +50,35 @@ The file will then be uploaded and can be viewed in (your) Catalog.
 
 # Query uploaded data
 Open the "SQL Editor" and create a new query (using the + button). 
-Within the editor type "List '" and activate Autofill by hitting CTRL+Space. This should help you fill the command with that syntax.
+Within the editor type "LIST '<path>'" and paste the "volume file path" which you can copy from the csv-file's dropdown menu or its parent folder.
+Hit CTRL+Enter to execute the command.
 
 ```
 >> LIST '/Volumes/<<catalog>>/<<schema>>/<<volume>>'
 ```
 (!) Use Single-Quotes (') in this statement.
 
+![image](https://github.com/user-attachments/assets/bb130e87-b7ba-4423-a3e4-62e5dc84918f)
 
 
+To query the file use a SELECT statement.
 ```
->> select * from csv.`/Volumes/<<catalog>>/<<schema>>/<<volume>>/<<filename.csv>>`
+>> SELECT * FROM csv.`/Volumes/<<catalog>>/<<schema>>/<<volume>>/<<filename.csv>>`
 ```
-(!) Achtung: Es müssen Backticks (`) verwendet werden und nicht Single-Quotes (').
+(!) Use Backticks (`) in this statement.
+
+Do you notice anything about the column headers?
+
+## Query data using 'read_files()'
+We can use the [read_files()](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/functions/read_files) function with parameters to read JSON, CSV, XML, TEXT, BINARYFILE, PARQUET, AVRO, and ORC files.
+
+```
+SELECT * FROM read_files(
+  '/Volumes/dbx_101_js/bronze/manual_uploads/baby-names.csv',
+  format => 'csv',
+  header => true)
+```
+![image](https://github.com/user-attachments/assets/09e08c32-8a40-43aa-ad1b-cf6941881355)
+
+Notice the _rescued_data column? See the [docs](https://docs.databricks.com/en/ingestion/cloud-object-storage/auto-loader/schema.html#what-is-the-rescued-data-column).
+
