@@ -10,10 +10,17 @@ This repo contains code and docs for starting out with Databricks.
  - "Launch Workspace"
 
 ## Take a look around
+Sidebar
  - Workspace: View and manage your code here
  - Catalog: Browse and manage your data (tables, schema, catalogs AND volumes, folders, files)
  - SQL Editor: Develop your CRUD (CREATE, READ, UPDATE, DELETE) operations
- - SQL Warehouses: SQL warehouse is a compute resource (actual hardware) that runs your queries on Azure Databricks.
+ - Compute and SQL Warehouses: This is the hardware that runs your queries, python scripts, jobs and pipelines.
+ - Data Ingestion: Start to ingest data by uploading data or use existing connectors for all kinds of datasources.
+ - Delta Live Tables: Build data pipelines and Databricks will recognize and handle script dependencies automatically for execution.
+
+![image](https://github.com/user-attachments/assets/a423c17a-8965-4d79-b337-043b07d28aab)
+
+
 
 # File upload to managed Storage
 
