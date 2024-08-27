@@ -94,11 +94,11 @@ When using Python in data engineering, you might have come over the datatype "Da
 
 Copy the following Python code and paste it into the first cell of the notebook.
 ```python
-babynames = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/Volumes/main/default/my-volume/babynames.csv")
+babynames = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/Volumes/dbx_101_js/bronze/manual_uploads/baby-names.csv")
 babynames.createOrReplaceTempView("babynames_table")
 years = spark.sql("select distinct(Year) from babynames_table").toPandas()['Year'].tolist()
 years.sort()
-dbutils.widgets.dropdown("year", "2014", [str(x) for x in years])
-display(babynames.filter(babynames.Year == dbutils.widgets.get("year")))
+dbutils.widgets.dropdown("Year", "2008", [str(x) for x in years])
+display(babynames.filter(babynames.year == dbutils.widgets.get("year")))
 ```
 
