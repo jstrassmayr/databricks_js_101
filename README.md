@@ -82,3 +82,15 @@ SELECT * FROM read_files(
 
 Notice the _rescued_data column? Add the option "schemaEvolutionMode => 'none'" to hide it. See the [docs](https://docs.databricks.com/en/ingestion/cloud-object-storage/auto-loader/schema.html#what-is-the-rescued-data-column) for more info.
 
+
+# Pipelines
+Let's create a Python Notebook to read data from Bronze layer, modify it and write it to Silver layer.
+ - Open the "Workspace"
+ - Choose "Home"
+ - -> Create -> Notebook
+
+## Dataframes
+When using Python in data engineering, you might have come over the datatype "Dataframe". Dataframe variables/objects are very usefull to modify, filter, rename, aggregate... data. There are 2 types of dataframes on this planet: [Pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)- and [Spark-Dataframes](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.html). Spark DFs provide additional(!) functionality for reading/writing data from/to files and tables. You can convert back and forth but in Databricks we more often use Spark dataframes.
+
+
+
