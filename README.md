@@ -80,5 +80,5 @@ SELECT * FROM read_files(
 ```
 ![image](https://github.com/user-attachments/assets/09e08c32-8a40-43aa-ad1b-cf6941881355)
 
-Notice the _rescued_data column? See the [docs](https://docs.databricks.com/en/ingestion/cloud-object-storage/auto-loader/schema.html#what-is-the-rescued-data-column). use "schemaEvolutionMode => 'none'" to hide it.
+Notice the _rescued_data column? Add the option "schemaEvolutionMode => 'none'" to hide it. See the [docs](https://docs.databricks.com/en/ingestion/cloud-object-storage/auto-loader/schema.html#what-is-the-rescued-data-column) for more info.
 
