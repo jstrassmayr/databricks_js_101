@@ -89,7 +89,7 @@ Let's create a Python Notebook to read data from Bronze layer, modify it and wri
  - Choose "Home"
  - -> Create -> Notebook
 
-## Dataframes
+## Read and display filtered data - with Dataframes
 When using Python in data engineering, you might have come over the datatype "Dataframe". Dataframe variables/objects are very usefull to modify, filter, rename, aggregate... data. There are 2 types of dataframes widely used: [Pandas](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)- and [Spark-Dataframes](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.html). Both serve similar purposes but Spark DFs provide some extra functionality for reading/writing data from/to files and tables. You can convert each one's data back and forth as needed.
 
 Copy the following Python code and paste it into the first cell of the notebook. Then hit -> "Run cell".
@@ -104,3 +104,9 @@ display(babynames.filter(babynames.year == dbutils.widgets.get("year")))
 
 This will result in a similar view as this:
 ![image](https://github.com/user-attachments/assets/8b214dd8-b906-45fc-8f0b-59386da486bd)
+
+# Create a job
+In order to run a Pipeline (aka. Workflow), you need to create Jobs for each of your Notebook like so:
+ - Click "Workflows" in the sidebar
+ - Click on "Create Job"
+ - 
