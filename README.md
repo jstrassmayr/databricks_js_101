@@ -117,24 +117,35 @@ babynames.write.format("delta") \
 ```
 This will (over)write the content of the dataframe to a table.
 
-## Gold layer: Read from Silver and write aggregated to Gold
-Let's create a Python Notebook to read data from Silver layer, aggregate it and write it to Gold layer.
+## Write to Gold: Top baby names
+Let's create a Python Notebook to read data from Silver layer, find the top boy and girl name per year and write them to Gold layer.
  - -> New -> Notebook
- - Choose a name (e.g. "Bronze to Silver")
+ - Change the notebook title (e.g. "Silver to Gold")
+ - Change the first code cell's type to 'SQL'
  - Click on the word "generate" to get some AI help 
  - ![image](https://github.com/user-attachments/assets/7c8a8c3e-84d3-4207-93aa-7af436a03d75)
- - Enter the prompt "Read data from catalog 'dbx_101_js', schema 'silver' and table 'babynames_<<suffixx>>'"
+ - Enter a prompt similar to 'retrieve the most used (percent) girl and boy names per year from the table babynames'
+ - This should result in this
+ - ```sql
+   %sql
+   SELECT year, sex, name, percent AS max_percent
+   FROM (
+     SELECT year, sex, name, percent,
+            RANK() OVER(PARTITION BY year, sex ORDER BY percent DESC) AS rank
+     FROM dbx_101_js.silver.babynames_js
+   ) ranked
+   WHERE ranked.rank = 1
+   ORDER BY year, sex;
+   ```
 
-This should result in a code suggestion which you can accept and looks like this:
-```python
-df = spark.read.table("dbx_101_js.silver.babynames_js")
-display(df)
-```
+This SELECT statement's result is stored as a dataframe named "_sqldf" and can be used in other Python and SQL cells. Let's write the result to a table top_babynames:
+ - Add a new Python code cell
+ - Insert the following code
+ - ```python
+   _sqldf.write.mode("overwrite").saveAsTable("top_babynames_<<suffix>>")
+   ```
 
-
-
-
-# Create a job
+## Set up the workflow
 In order to run a Pipeline (aka. Workflow), you need to create Jobs for each of your Notebook like so:
  - Click "Workflows" in the sidebar
  - Click on "Create Job"
