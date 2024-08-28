@@ -158,6 +158,7 @@ Now, let's create a Pipeline (aka. Workflow) which consecutively executes the lo
  - Add a task for the Gold layer load
    - Do the same as above but choose the "Silver to Gold" notebook
  - Choose a proper job name (e.g. "Full medallion load")
+ - ![image](https://github.com/user-attachments/assets/1e04fe18-5469-4b92-be89-cca87db2ec21)
  - -> Run now (takes 1-2 minutes)
 
 You have now loaded and aggregated data from Bronze to Gold using several techniques such as Python and SQL.
