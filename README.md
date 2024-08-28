@@ -111,14 +111,20 @@ This will result in a similar view as this:
  - Modify the code accordingly to write to the correct catalog
    
 ```python
-babynames.write.format("delta").saveAsTable("<<catalog>>.silver.babynames_<<your_suffix>>")
+babynames.write.format("delta") \
+    .mode("overwrite") \
+    .saveAsTable("<<catalog>>.silver.babynames_<<your_suffix>>")
 ```
-This will write the content of the dataframe to a table.
+This will (over)write the content of the dataframe to a table.
 
 ## Gold layer: Read from Silver and write aggregated to Gold
 Let's create a Python Notebook to read data from Silver layer, aggregate it and write it to Gold layer.
  - -> New -> Notebook
  - Choose a name (e.g. "Bronze to Silver")
+
+```python
+
+```
 
 
 
