@@ -99,7 +99,7 @@ babynames.createOrReplaceTempView("babynames_table")
 years = spark.sql("select distinct(Year) from babynames_table").toPandas()['Year'].tolist()
 years.sort()
 dbutils.widgets.dropdown("Year", "2008", [str(x) for x in years])
-display(babynames.filter(babynames.year == dbutils.widgets.get("year")))
+display(babynames.filter(babynames.year == dbutils.widgets.get("Year")))
 ```
 
 This will result in a similar view as this:
