@@ -105,6 +105,16 @@ display(babynames.filter(babynames.year == dbutils.widgets.get("Year")))
 This will result in a similar view as this:
 ![image](https://github.com/user-attachments/assets/8b214dd8-b906-45fc-8f0b-59386da486bd)
 
+## Write to Silver
+ - Create a new code cell (by hovering your mouse below the current cell) and click "+ Code"
+ - Insert the following code
+ - Modify the code accordingly to write to the correct catalog
+   
+```python
+babynames.write.format("delta").saveAsTable("<<catalog>>.silver.babynames_<<your_suffix>>")
+```
+This will write the content of the dataframe to a table.
+
 ## Gold layer: Read from Silver and write aggregated to Gold
 Let's create a Python Notebook to read data from Silver layer, aggregate it and write it to Gold layer.
  - -> New -> Notebook
