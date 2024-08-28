@@ -138,7 +138,7 @@ Let's create a Python Notebook to read data from Silver layer, find the top boy 
    ORDER BY year, sex;
    ```
 
-This SELECT statement's result is stored as a dataframe named "_sqldf" and can be used in other Python and SQL cells. Let's write the result to a table top_babynames:
+A SELECT statement's result is stored in a dataframe named "_sqldf" and can be used in other Python and SQL cells. Let's write the result to a table top_babynames:
  - Add a new Python code cell
  - Insert the following code
  - ```python
@@ -146,7 +146,27 @@ This SELECT statement's result is stored as a dataframe named "_sqldf" and can b
    ```
 
 ## Set up the workflow
-In order to run a Pipeline (aka. Workflow), you need to create Jobs for each of your Notebook like so:
+Now, let's create a Pipeline (aka. Workflow) which consecutively executes the load of Silver and Gold.
  - Click "Workflows" in the sidebar
  - Click on "Create Job"
- - 
+ - Add a task for the Silver layer load
+   - Task name: Silver
+   - Type: Notebook
+   - Source: Workspace
+   - Path: <<Choose the previously created notebook 'Bronze to Silver'>>
+   - -> Create task
+ - Add a task for the Gold layer load
+   - Do the same as above but choose the "Silver to Gold" notebook
+ - Choose a proper job name (e.g. "Full medallion load")
+ - -> Run now (takes 1-2 minutes)
+
+You have now loaded and aggregated data from Bronze to Gold using several techniques such as Python and SQL.
+
+## Scheduling jobs
+Let's add a trigger to our pipeline so we can run it on a schedule.
+ - Click "Workflows" in the sidebar
+ - Open the job you just created. You are now on the "Runs" overview which shows when the pipeline has been running and how it ended (success or failure). To see the tasks ("Silver" and "Gold") you created previously, open the "Tasks" overview (top left).
+ - On either of these 2 pages you can see Job details on the right. Click -> Add trigger
+ - Choose a periodicity and -> Save
+ - ![image](https://github.com/user-attachments/assets/6b11826a-0c2f-42e4-9e40-85027aa5288b)
+
