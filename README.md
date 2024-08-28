@@ -164,7 +164,7 @@ Now, let's create a Pipeline (aka. Workflow) which consecutively executes the lo
 You have now loaded and aggregated data from Bronze to Gold using several techniques such as Python and SQL.
 
 ## Scheduling jobs
-Let's add a trigger to our pipeline so we can run it on a schedule.
+Let's add a trigger to our pipeline so it runs on a daily schedule.
  - Click "Workflows" in the sidebar
  - Open the job you just created. You are now on the "Runs" overview which shows when the pipeline has been running and how it ended (success or failure). To see the tasks ("Silver" and "Gold") you created previously, open the "Tasks" overview (top left).
  - On either of these 2 pages you can see Job details on the right. Click -> Add trigger
