@@ -122,13 +122,13 @@ Let's create a Python Notebook to read data from Silver layer, aggregate it and 
  - -> New -> Notebook
  - Choose a name (e.g. "Bronze to Silver")
  - Click on the word "generate" to get some AI help 
-   ![image](https://github.com/user-attachments/assets/7c8a8c3e-84d3-4207-93aa-7af436a03d75)
- - Enter the prompt "Read data from catalog 'dbx_101_js', schema 'silver' and table 'babynames' 
- 
+ - ![image](https://github.com/user-attachments/assets/7c8a8c3e-84d3-4207-93aa-7af436a03d75)
+ - Enter the prompt "Read data from catalog 'dbx_101_js', schema 'silver' and table 'babynames_<<suffixx>>'"
 
-
+This should result in a code suggestion which you can accept and looks like this:
 ```python
-
+df = spark.read.table("dbx_101_js.silver.babynames_js")
+display(df)
 ```
 
 
