@@ -10,7 +10,8 @@ This repo contains code and docs for starting out with Databricks.
  - "Launch Workspace"
 
 ## Take a look around
-Sidebar
+
+The most relevant items in the side bar are:
  - Workspace: View and manage your code here
  - Catalog: Browse and manage your data (tables, schema, catalogs AND volumes, folders, files)
  - SQL Editor: Develop your CRUD (CREATE, READ, UPDATE, DELETE) operations
