@@ -1,16 +1,21 @@
 # databricks_js_101
 This repo contains code and docs for starting out with Databricks.
 
+# Assumptions
+When creating this training material, I assumed the following
+ - General programming skills
+ - Basic SQL and Python knowledge
+ - General ETL/DWH experience
+
 # Databricks Workspace Overview
 
 ## Open Workspace
  - Go to https://portal.azure.com
  - Search for Databricks
- - Select Playground Workspace
+ - Select your Playground Workspace
  - "Launch Workspace"
 
 ## Take a look around
-
 The most relevant items in the side bar are:
  - Workspace: View and manage your code here
  - Catalog: Browse and manage your data (tables, schema, catalogs AND volumes, folders, files)
