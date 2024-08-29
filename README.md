@@ -147,7 +147,7 @@ A SELECT statement's result is stored in a dataframe named "_sqldf" and can be u
  - Add a new Python code cell
  - Insert the following code
  - ```python
-   _sqldf.write.mode("overwrite").saveAsTable("top_babynames_<<suffix>>")
+   _sqldf.write.mode("overwrite").saveAsTable("dbx_101_js.top_babynames_<<suffix>>")
    ```
 
 ## Set up the workflow
