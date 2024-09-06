@@ -176,3 +176,5 @@ Let's add a trigger to our pipeline so it runs on a daily schedule.
  - Choose a periodicity and -> Save
  - ![image](https://github.com/user-attachments/assets/6b11826a-0c2f-42e4-9e40-85027aa5288b)
 
+# Next steps
+See my [Databricks_js_102](https://github.com/jstrassmayr/databricks_js_102/tree/main)-repo for next steps with Databricks with a focus on [Delta Live tables](https://www.databricks.com/de/product/delta-live-tables).
