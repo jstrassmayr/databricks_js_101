@@ -1,7 +1,14 @@
 # databricks_js_101
 This repo contains code and docs for starting out with Databricks.
 
-# Assumptions
+# Overview
+## Topics covered
+- Databricks Workspace Overview
+- File upload to managed Storage
+- Query uploaded data
+- Pipelines
+
+## Assumptions
 When creating this training material, I assumed the following
  - General programming skills
  - Basic SQL and Python knowledge
