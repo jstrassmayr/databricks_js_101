@@ -17,7 +17,13 @@ WHEN NOT MATCHED BY SOURCE THEN
 ```
 
 # SCD Type 2
+
+## Example video
 https://www.youtube.com/watch?v=GhBlup-8JbE
+
+## Example blogpost
+https://iterationinsights.com/article/how-to-implement-slowly-changing-dimensions-scd-type-2-using-delta-table/
+
 
 # Sources
 - https://docs.databricks.com/en/delta/merge.html
